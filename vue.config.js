@@ -1,4 +1,12 @@
-const { defineConfig } = require('@vue/cli-service')
-module.exports = defineConfig({
-  transpileDependencies: true
-})
+module.exports = {
+  lintOnSave: false,
+  chainWebpack: config => {
+    // GraphQL Loader
+    config.module
+      .rule('rules')
+      .test(/\.(png|jpe?g|gif|svg|cur)(\?.*)?$/)
+      .use('url-loader')
+        .loader('url-loader')
+        .end()
+  }
+}
