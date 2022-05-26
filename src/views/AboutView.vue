@@ -24,6 +24,7 @@ export default {
     init() {
       // 渲染出地球球体
       this._viewer = new Cesium.Viewer("cesiumContainer", {});
+      // 获取到区块数据
       var promise = Cesium.GeoJsonDataSource.load(
         "https://geo.datav.aliyun.com/areas_v2/bound/110000_full.json"
       );
@@ -33,7 +34,7 @@ export default {
         for (var i = 0; i < entities.length; i++) {
           var entity = entities[i];
           entity.polygon.material = Cesium.Color.SKYBLUE;
-          entity.polygon.extrudedHeight = 1000;
+          entity.polygon.extrudedHeight = 100;
         }
       });
       // 鼠标点击面获得动效线效果
