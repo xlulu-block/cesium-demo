@@ -40,3 +40,13 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
     // 获取本年
     dayjs().startOf('year')..format('YYYY-MM-DD') // 今年第一天
     dayjs().endOf('year')..format('YYYY-MM-DD') // 今年最后一天
+
+   handleTime(time) {
+      // 转换为式分秒
+      const h = parseInt(time / 3600)
+      const minute = parseInt(time / 60 % 60)
+      const second = Math.ceil(time % 60)
+      const hours = h < 10 ? '0' + h : h
+      const formatSecond = second > 59 ? 59 : second
+      return [hours, minute, formatSecond]
+    }
