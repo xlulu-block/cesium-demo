@@ -45,7 +45,7 @@ export default {
       // 将立方体网格追加到场景中
       scene.add(cube)
       // 设置摄像机在z轴上的距离（也就是在屏幕上的距离）
-      camera.position.z = 5
+      camera.position.z = 10
       // 【步骤5】
       // 创建渲染器
       const renderer = new WebGLRenderer()
@@ -58,7 +58,6 @@ export default {
 
       // 【步骤6】
       // 通过修改 cube 的 rotation 的属性，改变立方体的角度。最后再不断刷新画布做出动画效果。
-      renderer.render(scene, camera)
       function animate() {
         requestAnimationFrame(animate)
 
@@ -69,6 +68,11 @@ export default {
         renderer.render(scene, camera)
       }
       animate()
+      setTimeout(() => {
+        scene.remove(cube)
+        // 5秒后移除立方体，并重新渲染画布
+        renderer.render(scene,camera)
+      }, 2000);
     }
   }
 }

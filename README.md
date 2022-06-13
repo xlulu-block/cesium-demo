@@ -50,3 +50,12 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
       const formatSecond = second > 59 ? 59 : second
       return [hours, minute, formatSecond]
     }
+
+    // 金额的validate
+     penaltyAmount: [
+          {
+            pattern: /^(([1-9]{1}\d{0,9})|(0{1}))(\.\d{1,2})?$/,
+            message: "请输入合法的金额数字，最多两位小数",
+            trigger: "blur",
+          },
+        ],
