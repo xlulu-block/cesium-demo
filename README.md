@@ -59,3 +59,18 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
             trigger: "blur",
           },
         ],
+
+        // 导出
+        // 下载链接
+let downloadFiles = (url) => {
+  const iframe = document.createElement("iframe");
+  iframe.style.display = "none"; // 防止影响页面
+  iframe.style.height = 0; // 防止影响页面
+  iframe.src = url;
+  document.body.appendChild(iframe); // 这一行必须，iframe挂在到dom树上才会发请求
+  // 5分钟之后删除（onload方法对于下载链接不起作用，就先抠脚一下吧）
+  setTimeout(() => {
+    // iframe.remove();
+    document.body.removeChild(iframe);
+  }, 2000);
+};
