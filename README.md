@@ -74,3 +74,9 @@ let downloadFiles = (url) => {
     document.body.removeChild(iframe);
   }, 2000);
 };
+
+   // 处理删除最后一页无数据
+          let deleteAfterPage = Math.ceil((this.total - 1) / 5)
+          let currentPage = this.currentPage > deleteAfterPage ? deleteAfterPage : this.currentPage
+          this.currentPage = currentPage < 1 ? 1 : currentPage
+            this.serchFn();
