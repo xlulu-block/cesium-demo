@@ -80,3 +80,4 @@ let downloadFiles = (url) => {
           let currentPage = this.currentPage > deleteAfterPage ? deleteAfterPage : this.currentPage
           this.currentPage = currentPage < 1 ? 1 : currentPage
             this.serchFn();
+css -object-fit//图片自适应
